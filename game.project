@@ -23,5 +23,5 @@ scale_mode = stretch
 title = library
 
 [library]
-include_dirs = cool_stuffs
+include_dirs = helpers
 
