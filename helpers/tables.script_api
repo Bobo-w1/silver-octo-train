@@ -1,0 +1,70 @@
+- name: tables
+  type: table
+  desc: More Table Functions 
+
+  members:
+  - name: find
+    type: function
+    desc: Find value from table
+
+    parameters:
+    - name: from_table
+      type: table
+      desc: The table that value is in
+
+    - name: find_value
+      type: [string, boolean, number]
+      desc: The value that need to be found  (Count only the first value that appears)
+    returns:
+    - name: index
+      type: [number, nil]
+      desc: Return index of the found value
+
+    examples:
+    - desc:|-
+                 ```lua
+               local table = {"a", "b", "c"}
+               local index = tables.find(table, "b")
+               print(index)
+                 ```
+
+  - name: move
+    type: function
+    desc: Move elements from a table to another
+
+    parameters:
+    - name: from_table
+      type: table
+      desc: The table that elements are going to move out of
+
+    - name: from_start_index
+      type: number
+      desc: The starting index of the from_table
+
+    - name: from_end_index
+      type: number
+      desc: The ending index of the from_table
+
+    - name: to_start_index
+      type: number
+      desc: The starting index of the destination table where elements are going to move at
+
+    - name: to_table
+      type: table
+      desc: The destination table where the elements from from_table are moved in
+
+    returns:
+    - name: to_table
+      type: table
+      desc: The destination table with elements moved in
+
+    examples:
+    - desc:|-
+                 ```lua
+               local table_1 = {"a", "b", "c"}
+               local table_2 = {"d", "e", "f"}
+               local table = table.move(table_1, 1, #table_1, #table_2 + 1, table_2)
+               print(table)
+                 ```
+
+	
